@@ -9,7 +9,6 @@ jobs:
     
     steps:
     - name: Assign a reviewer based on the assignee
-      uses: pullreminders/assignee-to-reviewer-action@v1.0.4
+      uses: lionel1704/assignee-to-reviewer-action@update-v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REVIEWERS_UNMODIFIED_EXIT_CODE: 0
