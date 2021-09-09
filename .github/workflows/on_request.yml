@@ -1,0 +1,18 @@
+name: Triggered on request
+on:
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  run-testnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        with:
+          trigger: '/run-testnet'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - run: 'echo ${{ github.event }}'
+        if: steps.check.outputs.triggered == 'true'
