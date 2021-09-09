@@ -1,6 +1,6 @@
 name: Triggered on request
 on:
-  pull_request_review_comment:
+  issue_comment:
     types: [created]
 
 jobs:
