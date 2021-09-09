@@ -7,4 +7,6 @@ jobs:
   run-testnet:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ toJson(github) }}
+      - run: echo ${{ toJson(github.event) }}
+      - run: echo ${{ toJson(github.event.pull_request) }}
+      - run: echo ${{ toJson(github.event.pull_request.review) }}
