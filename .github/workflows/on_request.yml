@@ -7,6 +7,5 @@ jobs:
   run-testnet:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJson(github.event.review) }}"
-      - run: echo "${{ toJson(github.event.review.body) }}"
-      - run: echo "${{ github.event.review.body }}"
+      - run: echo "TADAAAAAA"
+        if: ${{ github.event.review.body }} == "launch-testnet"
