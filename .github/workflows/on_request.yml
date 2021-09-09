@@ -8,4 +8,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: 'echo $GITHUB_EVENT_PATH'
-        if: steps.check.outputs.triggered == 'true'
