@@ -5,4 +5,4 @@ jobs:
   kill-testnet:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Branch ${{ github.event.ref }} was created"
+      - run: echo "Branch ${{ github.sha:8 }} was created"
