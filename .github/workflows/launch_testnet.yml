@@ -2,7 +2,7 @@ name: Launch DO Testnet
 on:
   push:
     branches:
-      - 'testnet-*'
+      - 'testnet-**'
 
 jobs:
   launch-testnet:
