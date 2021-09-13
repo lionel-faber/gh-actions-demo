@@ -6,4 +6,4 @@ jobs:
     if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'testnet')
     runs-on: ubuntu-latest
     steps:
-      - run: "Branch ${{ github.event.ref }} was created"
+      - run: echo "Branch ${{ github.event.ref }} was created"
