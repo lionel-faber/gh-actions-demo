@@ -8,8 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: github.event.review.body == 'launch-testnet'
+        name: 'Create new branch: testnet-${{ github.sha }}'
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: 'testnet-${{ github.sha }}'
+      - if: github.event.review.body == 'kill-testnet'
+        name: 'Delete branch: testnet-${{ github.sha }}'
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branches: 'testnet-${{ github.sha }}'
