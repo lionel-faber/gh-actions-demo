@@ -1,10 +1,10 @@
-name: Triggered on request
+name: Trigger Testnet Actions
 on:
   pull_request_review:
-    types: [submitted, edited]
+    types: [submitted]
 
 jobs:
-  run-testnet:
+  trigger-testnet-actions:
     runs-on: ubuntu-latest
     steps:
       - if: github.event.review.body == 'launch-testnet'
