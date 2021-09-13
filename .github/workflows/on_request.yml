@@ -7,5 +7,9 @@ jobs:
   run-testnet:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TADAAAAAA"
-        if: github.event.review.body == 'launch-testnet'
+      - if: github.event.review.body == 'launch-testnet'
+        uses: peterjgrainger/action-create-branch@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: 'testnet-${{ github.sha }}'
