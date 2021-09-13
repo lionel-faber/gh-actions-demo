@@ -1,0 +1,9 @@
+name: Kill DO Testnet
+on: delete
+
+jobs:
+  kill-testnet:
+    if: github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - run: "Branch ${{ github.event.ref }} was deleted
