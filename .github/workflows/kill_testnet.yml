@@ -6,4 +6,4 @@ jobs:
     if: github.event.ref_type == 'branch'
     runs-on: ubuntu-latest
     steps:
-      - run: "Branch ${{ github.event.ref }} was deleted"
+      - run: echo "Branch ${{ github.event.ref }} was deleted"
