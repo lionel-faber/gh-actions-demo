@@ -1,11 +1,9 @@
 name: Launch DO Testnet
-on:
-  push:
-    branches:
-      - 'testnet-**'
+on: create
 
 jobs:
-  launch-testnet:
+  kill-testnet:
+    if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'testnet')
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'This is run when a new branch is created'
+      - run: "Branch ${{ github.event.ref }} was created"
