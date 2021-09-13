@@ -1,7 +1,5 @@
 name: Launch DO Testnet
-on:
-  - create
-  - workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   kill-testnet:
