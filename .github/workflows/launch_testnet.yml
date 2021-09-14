@@ -1,8 +1,32 @@
 name: Launch DO Testnet
-on: workflow_dispatch
-
+on: 
+  workflow_dispatch:
+    inputs:
+      launch:
+        description: 'Set to non-empty if a new network should be launched'
+        required: false
+        default: ''
+      client-tests:
+        description: 'Set to non-empty if the clients tests should be run'
+        required: false
+        default: ''
+      kill:
+        description: 'Set to non-empty if the network should be killed'
+        required: false
+        default: ''
 jobs:
+  launch-testnet:
+    if: github.events.inputs.launch != ''
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
+  run-client-tests:
+    if: github.events.inputs.client-tests != ''
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
   kill-testnet:
+    if: github.events.inputs.kill != ''
     runs-on: ubuntu-latest
     steps:
       - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
