@@ -19,14 +19,14 @@ jobs:
     if: github.events.inputs.launch != ''
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
+      - run: echo "Launching..."
   run-client-tests:
     if: github.events.inputs.client-tests != ''
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
+      - run: echo "Running client tests...."
   kill-testnet:
     if: github.events.inputs.kill != ''
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Branch ${{ GITHUB_SHA:8 }} was created"
+      - run: echo "Killing testnet..."
