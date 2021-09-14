@@ -21,14 +21,14 @@ jobs:
     steps:
       - run: echo "Launching..."
   run-client-tests:
-    if: github.event.inputs.client-tests != ''
+    if: always() && github.event.inputs.client-tests != ''
     runs-on: ubuntu-latest
     needs: [launch-testnet]
     steps:
       - run: echo "Running client tests...."
   kill-testnet:
     needs: [launch-testnet, run-client-tests]
-    if: github.event.inputs.kill != ''
+    if: always() && github.event.inputs.kill != ''
     runs-on: ubuntu-latest
     steps:
       - run: echo "Killing testnet..."
