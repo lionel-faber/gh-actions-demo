@@ -1,0 +1,30 @@
+﻿name: PR Labeler
+
+on:
+  pull_request:
+    branches:
+      - master
+      - staging
+      - dev
+    types:
+      - opened
+      - edited
+
+jobs:
+  hotfix-label:
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: hotfix-label
+        uses: github/issue-labeler@v3.3
+        with:
+          configuration-path: .github/labeler.yml
+          include-body: 0
+          include-title: 1
+          enable-versioned-regex: 0
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
